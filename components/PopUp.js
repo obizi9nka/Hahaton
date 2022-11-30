@@ -1,3 +1,4 @@
+import Script from "next/script";
 
 export default function PopUp({ znachok, setZnachok }) {
 
@@ -11,13 +12,13 @@ export default function PopUp({ znachok, setZnachok }) {
         }}>
 
             <div className="znachokAlert" onClick={e => e.stopPropagation()} >
-                <script src="https://www.google.com/recaptcha/enterprise.js?render=6Ld8s0UjAAAAAE0ldc76WOG9yz33MWUrgBp-VU1t"></script>
-                <script>
+                <Script src="https://www.google.com/recaptcha/enterprise.js?render=6Ld8s0UjAAAAAE0ldc76WOG9yz33MWUrgBp-VU1t" />
+                {/* <script>
                     grecaptcha.enterprise.ready(function() {
                         grecaptcha.enterprise.execute('6Ld8s0UjAAAAAE0ldc76WOG9yz33MWUrgBp-VU1t', { action: 'login' }).then(function (token) {
                         })
                     })
-                </script>
+                </script> */}
             </div>
         </div >
     )
