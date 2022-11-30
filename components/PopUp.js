@@ -9,7 +9,15 @@ export default function PopUp({ znachok, setZnachok }) {
             else
                 document.body.style.overflow = ('overflow', 'hidden');
         }}>
+
             <div className="znachokAlert" onClick={e => e.stopPropagation()} >
+                <script src="https://www.google.com/recaptcha/enterprise.js?render=6Ld8s0UjAAAAAE0ldc76WOG9yz33MWUrgBp-VU1t"></script>
+                <script>
+                    grecaptcha.enterprise.ready(function() {
+                        grecaptcha.enterprise.execute('6Ld8s0UjAAAAAE0ldc76WOG9yz33MWUrgBp-VU1t', { action: 'login' }).then(function (token) {
+                        })
+                    })
+                </script>
             </div>
         </div >
     )
