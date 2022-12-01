@@ -13,25 +13,19 @@ export default function Home() {
     <div >
       <div className='tokensPicturesArea'>
         <div className='tokenPicture' onClick={() => { if (znachok == null) setZnachok(1) }} >
-          <div>
+          <div className='image'>
             Бронзовый значок
           </div>
-          <br />
-          {"При нажатии -> PopUp с необходимыми требования для получения значка"}
         </div>
         <div className='tokenPicture' onClick={() => { if (znachok == null) setZnachok(2) }}>
-          <div>
+          <div className='image'>
             Серебрянный значок
           </div>
-          <br />
-          {"При нажатии -> PopUp с необходимыми требования для получения значка"}
         </div>
         <div className='tokenPicture' onClick={() => { if (znachok == null) setZnachok(3) }}>
-          <div>
+          <div className='image'>
             Золотой значок
           </div>
-          <br />
-          {"При нажатии -> PopUp с необходимыми требования для получения значка"}
         </div>
       </div>
       <PopUp znachok={znachok} setZnachok={setZnachok} />

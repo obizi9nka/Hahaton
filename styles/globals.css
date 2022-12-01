@@ -71,6 +71,12 @@ a {
   pointer-events: all;
 }
 
+.image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: inherit;
+}
 
 
 .znachokAlert {

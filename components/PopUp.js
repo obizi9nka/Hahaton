@@ -15,22 +15,11 @@ export default function PopUp({ znachok, setZnachok }) {
             else
                 document.body.style.overflow = ('overflow', 'hidden');
         }}>
-
             <div className="znachokAlert" onClick={e => e.stopPropagation()} >
                 <ReCAPTCHA
-                    // sitekey="6Ld8s0UjAAAAAE0ldc76WOG9yz33MWUrgBp-VU1t"
-                    sitekey="6Ld_eUkjAAAAAAIUJO8yBhVSR8HW3h_YihP1kYlm"
+                    sitekey="6LdlpUkjAAAAAKpYpOF0UwnEBigt5z6S7Dg2-N-g"
                     onChange={onChange}
                 />
-
-
-                {/* <Script src="https://www.google.com/recaptcha/enterprise.js?render=6Ld8s0UjAAAAAE0ldc76WOG9yz33MWUrgBp-VU1t" />
-                {
-                    grecaptcha.enterprise.ready(function () {
-                        grecaptcha.enterprise.execute('6Ld8s0UjAAAAAE0ldc76WOG9yz33MWUrgBp-VU1t', { action: 'login' }).then(function (token) {
-                        })
-                    })
-                } */}
             </div>
         </div >
     )
