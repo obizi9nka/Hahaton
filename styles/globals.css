@@ -34,7 +34,7 @@ a {
 .tokensPicturesArea {
   display: flex;
   margin: 0px 15vw;
-  height: calc(100vh - 100px);
+  height: calc(100vh - 250px);
   align-items: center;
   justify-content: space-between;
 }
@@ -89,6 +89,28 @@ a {
   overflow-y: auto;
   overflow-x: hidden;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.MintButton {
+  background-color: blueviolet;
+  width: 150px;
+  height: 40px;
+  border-radius: 12px;
+  border: none;
+  margin: 30px;
+}
+
+.MintButton:hover {
+  cursor: pointer;
+}
+
+.balances {
+  display: grid;
+  justify-content: center;
+  margin: 20px 15vw 0px 15vw;
+  justify-items: center;
+  grid-template-columns: 1fr 1fr 1fr;
 }

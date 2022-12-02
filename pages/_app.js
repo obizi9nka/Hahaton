@@ -103,7 +103,6 @@ function MyApp({ Component, pageProps }) {
 
   const [chainId, setchainId] = useState(0)
 
-  const [ENTERED, setENTERED] = useState(false)
 
 
 
