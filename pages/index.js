@@ -9,7 +9,6 @@ import { CONTRACT_ADDRESS } from "../components/constants"
 import SoulBoundToken from "/blockchain/SoulBoundToken.json"
 
 
-
 export default function Home() {
 
   const [znachok, setZnachok] = useState(null)
@@ -18,7 +17,6 @@ export default function Home() {
   const { address } = useAccount()
   const [balance, setBalance] = useState()
   const [need, setneed] = useState(false)
-
 
   useEffect(() => {
     if (need)
@@ -46,7 +44,6 @@ export default function Home() {
     }
   }
 
-  console.log(balance)
   return (
     <div >
       {/* <h2 style={{ display: "flex", justifyContent: "center" }}>Ваш баланс</h2>
