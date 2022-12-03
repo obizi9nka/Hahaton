@@ -59,7 +59,7 @@ export default function Home() {
       <div className="CENTER description">Let everyone know that you are not a bot by verifying the <br />captcha and getting a soulbound NFT Token</div>
       <div className='CENTER'>
         <div className='image'>
-          Картинка токена
+          <Image src="/Good boy.png" width={250} height={250} />
         </div>
       </div>
       {balance?.first >= 1 ?
@@ -68,9 +68,9 @@ export default function Home() {
         </div>
         :
         <div>
-          <div className="CENTER">Connect your wallet</div>
+          {/* <div className="CENTER">Connect your wallet</div> */}
           <div className="CENTER" >
-            <button className='verify' onClick={() => { if (znachok == null && balance?.first == 0) setZnachok(1) }}>Verify your wallet</button>
+            <button className='verify pulse' onClick={() => { if (znachok == null && balance?.first == 0) setZnachok(1) }}>Verify your wallet</button>
           </div>
         </div>
       }

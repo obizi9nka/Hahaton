@@ -121,7 +121,7 @@ function MyApp({ Component, pageProps }) {
       </Head>
       <WagmiConfig client={wagmiClient}>
         <div className="nav">
-          <div>PSPRT.ID</div>
+          <div style={{ fontSize: "35px", fontWeight: "bold" }}>PSPRT.ID</div>
           <div></div>
           <Wallet chains={chains} />
         </div >
