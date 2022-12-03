@@ -53,7 +53,7 @@ const BNBChain = {
 
 
 const { chains, provider } = configureChains(
-  [chain.goerli, chain.sepolia, chain.hardhat, BNBChain, chain.mainnet],
+  [chain.goerli],
   [
     jsonRpcProvider({
       rpc: (chain) => {
@@ -121,8 +121,8 @@ function MyApp({ Component, pageProps }) {
       </Head>
       <WagmiConfig client={wagmiClient}>
         <div className="nav">
-          <div>Добавить что-нибудь</div>
-          <div>Картинка</div>
+          <div>PSPRT.ID</div>
+          <div></div>
           <Wallet chains={chains} />
         </div >
         <Component {...pageProps} />

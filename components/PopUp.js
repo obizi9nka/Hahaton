@@ -10,6 +10,7 @@ import SoulBoundToken from "/blockchain/SoulBoundToken.json"
 export default function PopUp({ znachok, setZnachok, setneed }) {
 
     const [disable, setdisable] = useState(true)
+    const [isSuccses, setisSuccses] = useState(undefined)
 
     const { address } = useAccount()
 
@@ -25,9 +26,13 @@ export default function PopUp({ znachok, setZnachok, setneed }) {
             const { message, messageHash, v, r, s } = await getSignature(address, znachok)
             const tx = await contract.mint(message, messageHash, v, r, s)
             await tx.wait()
-            setneed(true)
+            setTimeout(() => {
+                setneed(true)
+            }, 3000);
+            setisSuccses(true)
         } catch (err) {
             console.log(err)
+            setisSuccses(false)
         }
     }
 
@@ -40,12 +45,21 @@ export default function PopUp({ znachok, setZnachok, setneed }) {
                 document.body.style.overflow = ('overflow', 'hidden');
         }}>
             <div className="znachokAlert" onClick={e => e.stopPropagation()} >
+                <div className="JustSolv">Just solve the captcha and mint<br /> your soulbound NFT Token</div>
                 <ReCAPTCHA
                     sitekey="6LdlpUkjAAAAAKpYpOF0UwnEBigt5z6S7Dg2-N-g"
                     onChange={onChange}
                 />
                 <button className="MintButton" disabled={disable} onClick={() => Mint()}>Mint</button>
-            </div>
+                {isSuccses != undefined &&
+                    <div className="status">{
+                        isSuccses ?
+                            <div>Awesome! Check out your wallet for a new<br /> cool NFT Token</div>
+                            :
+                            <div>Oh... something goes wrong, try again</div>}
+                    </div>
+                }
+            </div >
         </div >
     )
 }

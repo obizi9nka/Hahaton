@@ -46,9 +46,10 @@ export default function Home() {
     }
   }
 
+  console.log(balance)
   return (
     <div >
-      <h2 style={{ display: "flex", justifyContent: "center" }}>Ваш баланс</h2>
+      {/* <h2 style={{ display: "flex", justifyContent: "center" }}>Ваш баланс</h2>
       <div className='balances'>
         <div>BRONZE</div>
         <div>SILVER</div>
@@ -56,9 +57,29 @@ export default function Home() {
         <div>{balance == undefined ? 0 : balance.first}</div>
         <div>{balance == undefined ? 0 : balance.second}</div>
         <div>{balance == undefined ? 0 : balance.third}</div>
+      </div> */}
+      <div className='CENTER zkPsprt'>Your zero-knowledge passport</div>
+      <div className="CENTER description">Let everyone know that you are not a bot by verifying the <br />captcha and getting a soulbound NFT Token</div>
+      <div className='CENTER'>
+        <div className='image'>
+          Картинка токена
+        </div>
       </div>
+      {balance?.first >= 1 ?
+        <div className='CENTER verifyed'>
+          You have already verified
+        </div>
+        :
+        <div>
+          <div className="CENTER">Connect your wallet</div>
+          <div className="CENTER" >
+            <button className='verify' onClick={() => { if (znachok == null && balance?.first == 0) setZnachok(1) }}>Verify your wallet</button>
+          </div>
+        </div>
+      }
 
-      <div className='tokensPicturesArea'>
+
+      {/* <div className='tokensPicturesArea'>
         <div className='tokenPicture' onClick={() => { if (znachok == null) setZnachok(1) }} >
           <div className='image'>
             Бронзовый значок
@@ -74,7 +95,7 @@ export default function Home() {
             Золотой значок
           </div>
         </div>
-      </div>
+      </div> */}
       <PopUp znachok={znachok} setZnachok={setZnachok} setneed={setneed} />
 
     </div>
