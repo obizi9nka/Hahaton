@@ -27,6 +27,10 @@ export default function Home() {
     CheckBalance()
   }, [])
 
+  useEffect(() => {
+    CheckBalance()
+  }, [address])
+
   const CheckBalance = async () => {
     try {
       const contract = new ethers.Contract(CONTRACT_ADDRESS, SoulBoundToken.abi, provider)
@@ -62,7 +66,7 @@ export default function Home() {
           <Image src="/Good boy.png" width={250} height={250} />
         </div>
       </div>
-      {balance?.first >= 1 ?
+      {(balance?.first >= 1 && address != undefined) ?
         <div className='CENTER verifyed'>
           You have already verified
         </div>
