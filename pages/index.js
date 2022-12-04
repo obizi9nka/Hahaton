@@ -14,8 +14,14 @@ export default function Home() {
   const [znachok, setZnachok] = useState(null)
 
   const provider = useProvider()
-  const { address } = useAccount()
-  const [balance, setBalance] = useState()
+  const { address, isConnected } = useAccount()
+  const [balance, setBalance] = useState({
+    first: 0,
+    second: 0,
+    third: 0,
+    timeMintedFirst: undefined
+  }
+  )
   const [need, setneed] = useState(false)
 
   useEffect(() => {
@@ -34,13 +40,18 @@ export default function Home() {
   const CheckBalance = async () => {
     try {
       const contract = new ethers.Contract(CONTRACT_ADDRESS, SoulBoundToken.abi, provider)
+      const timeMinted = parseInt(await contract.getLastTimeMinted(address, 1))
+      const date = new Date(timeMinted * 1000)
+      const t = date.toDateString()
+      const timeMintedFirst = `${t.substring(8, 10)} ${t.substring(4, 7)} ${t.substring(11, 15)}`
       const first = parseInt(await contract.balanceOf(address, 1))
       const second = parseInt(await contract.balanceOf(address, 2))
       const third = parseInt(await contract.balanceOf(address, 3))
       setBalance({
         first,
         second,
-        third
+        third,
+        timeMintedFirst
       })
       setneed(false)
     } catch (err) {
@@ -66,16 +77,17 @@ export default function Home() {
           <Image src="/Good boy.png" width={250} height={250} />
         </div>
       </div>
-      {(balance?.first >= 1 && address != undefined) ?
-        <div className='CENTER verifyed'>
-          You have already verified
-        </div>
-        :
+      {
+        // (address != undefined) ?
+        //   <div className='CENTER verifyed'>
+        //     You have already verified
+        //   </div>
+        //   :
         <div>
-          {/* <div className="CENTER">Connect your wallet</div> */}
           <div className="CENTER" >
-            <button className='verify pulse' onClick={() => { if (znachok == null && balance?.first == 0) setZnachok(1) }}>Verify your wallet</button>
+            <button className='verify pulse' onClick={() => { if (znachok == null) setZnachok(1) }}>Verify your wallet</button>
           </div>
+          {!isConnected && znachok != null && <div className="CENTER">Connect your wallet</div>}
         </div>
       }
 
@@ -97,7 +109,7 @@ export default function Home() {
           </div>
         </div>
       </div> */}
-      <PopUp znachok={znachok} setZnachok={setZnachok} setneed={setneed} />
+      <PopUp znachok={znachok} setZnachok={setZnachok} setneed={setneed} balance={balance} />
 
     </div>
   )
