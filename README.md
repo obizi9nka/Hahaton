@@ -16,12 +16,26 @@ Other files are part of frontend on Next.js
 
 ## Getting Started
 
-First, run the development server:
+```
+git clone https://github.com/obizi9nka/Hahaton.git
+cd Hahaton
+nmp i
+```
+
+Create .env.local file and config server private key and RPC URL, for example:
+```
+NEXT_PUBLIC_NODE_URL=https://eth-goerli.g.alchemy.com/v2/Fvr4iHEEClnFhZtgTB8ITVSen4GPwOls
+NEXT_PUBLIC_PRIVATE_KEY_SIGNER=0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80
+```
+
+After, deploy contract with argument signer - public key of private key above
+Set
+```CONTRACT_ADDRESS="address of deployed contract"``` in components/constants.js
+
+Then, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
