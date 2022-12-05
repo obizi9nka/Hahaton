@@ -1,5 +1,12 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+# Project future
+
+In the future, new tokan requirements will be added, such as gold, silver, and bronze.
+Bronze will be obtained if the user simply passes the captcha
+Silver if the account was created more than a month ago and there are transactions on it
+And gold will be mined in an even more difficult way.
+
 ## Project overview
 
 Project is submitted to the Hackathon Web3Souls by team DAOers
